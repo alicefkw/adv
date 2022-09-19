@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Advocacia: Início{% endblock %}
+
+{% block pagecontent %}
+<div class="corpo">
+
+<div class="parallax01" id="index_top">
+
+    <div id="bem_vindo">
+        <h1 class="index_titulo"><b style="color: #E13034;">Seja</b> bem vindo</h1>
+        <p id="index_apresentacao">&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar elit interdum felis
+            pellentesque, sed elementum libero semper. Praesent vitae nisi consequat, pretium ipsum non, egestas ante.</p>
+    </div>
+
+</div>
+    <div id="index_sub01">
+
+        <h1 class="itens_titulo" style="padding-top:3%; text-align: center;"><b style="color: #E13034;">Esferas</b> de atuação</h1>
+        <p class="itens_descricao">&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar elit interdum felis pellentesque, sed elementum libero semper. Praesent vitae nisi consequat, pretium ipsum non, egestas ante.</p>
+
+        <div class="container" align="center">
+
+            <div class="row">
+
+                <div class="col-sm">
+                    <div class="objetivo">
+
+                        <img class="itens_icone" src="{% static './images/civil.png' %}">
+
+                        <h2 class="itens_texto">Cívil</h2>
+
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div class="objetivo">
+
+                        <img class="itens_icone" src="{% static './images/criminal.png' %}">
+
+                        <h2 class="itens_texto">Criminal</h2>
+
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div class="objetivo">
+
+                        <img class="itens_icone" src="{% static './images/empresarial.png' %}">
+
+                        <h2 class="itens_texto">Empresarial</h2>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container" align="center">
+
+            <div class="row" data-anime="left">
+
+                <div class="col-sm">
+                    <div class="objetivo">
+
+                        <img class="itens_icone" src="{% static './images/trabalhista.png' %}">
+
+                        <h2 class="itens_texto">Trabalhista</h2>
+
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="objetivo">
+
+                        <img class="itens_icone" src="{% static './images/tributario.png' %}" >
+
+                        <h2 class="itens_texto">Tributário</h2>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="index_sub02">
+
+        <h1 class="index_titulo" style="padding-top:3%; text-align: center;">Últimos <b style="color: #E13034;">Artigos</b>:</h1>
+
+
+        <h1 class="index_titulo" style="padding-top:3%; text-align: center;">Nosso<b style="color: #E13034;"> Instagram</b>:</h1>
+
+        <div class="container" align="center">
+
+            <div class="row">
+
+                <div class="col-sm">
+                    <div style="width: 200px; height: 200px; background-color: darkgrey; border-radius: 5px;">
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div style="width: 200px; height: 200px; background-color: darkgrey; border-radius: 5px;">
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div style="width: 200px; height: 200px; background-color: darkgrey; border-radius: 5px;">
+
+
+
+                    </div>
+                </div>
+
+            </div><br>
+            <div class="row">
+
+                <div class="col-sm">
+                    <div style="width: 200px; height: 200px; background-color: darkgrey; border-radius: 5px;">
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div style="width: 200px; height: 200px; background-color: darkgrey; border-radius: 5px;">
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div style="width: 200px; height: 200px; background-color: darkgrey; border-radius: 5px;">
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

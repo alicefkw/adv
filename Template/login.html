@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Advocacia: Login Administrativo{% endblock %}
+
+{% block pagecontent %}
+    <h2 style="margin-top: 100px;">Login Administrativo</h2>
+    <!--<form method="post" action="{% url 'blog_index' %}">-->
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                {{ field.errors }}
+                {{ field.label_tag }} <p> {{ field }} <p></p>
+            </div>
+        {% endfor %}
+        <button type="submit">Entrar</button>
+        <!--<p>Esqueceu a senha? <a href="../recuperar-senha/">Clique aqui</a></p>-->
+        <p>Ainda não se cadastrou? <a href="{% url 'register' %}">Crie uma conta</a></p>
+    </form>
+{% endblock %}

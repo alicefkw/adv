@@ -1,0 +1,142 @@
+{% load static %}
+
+<!-- HEAD -->
+<!doctype html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LINKS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" type="text/css" href="{% static './css/style.css' %}" media="screen"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/f8c59628cb.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<body>
+<nav class="navbar navbar-expand-lg fixed-top" style="font-family: 'Century', sans-serif;">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        {% if request.path == '/' %}
+            <a class="navbar-brand" href=""><img id="nav_img" src="{% static 'images/logo.png' %}"></a>
+        {% elif 'somenteadvogados' in request.path %}
+            <a class="navbar-brand" href="../../../"><img id="nav_img" src="{% static 'images/logo.png' %}"></a>
+        {% else %}
+            <a class="navbar-brand" href="../"><img id="nav_img" src="{% static 'images/logo.png' %}"></a>
+        {% endif %}
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-aut">
+
+                <li class="nav-item">
+                    {% if request.path == '/' %}
+                        <a class="nav-link" href=""><b class="nav_op">Home</b></a>
+                    {% elif 'somenteadvogados' in request.path %}
+                        <a class="nav-link" href="../../"><b class="nav_op">Home</b></a>
+                    {% else %} <!-- se aumentar url, aumenta quantidade ../ -->
+                        <a class="nav-link" href="../"><b class="nav_op">Home</b></a>
+                    {% endif %}
+                </li>
+
+                <li class="nav-item">
+                    {% if request.path == '/' %}
+                        <a class="nav-link" href="/posts/"><b class="nav_op">Artigos Didáticos</b></a>
+                    {% elif 'somenteadvogados' in request.path %}
+                        <a class="nav-link" href="../../posts/"><b class="nav_op">Artigos Didáticos</b></a>
+                    {% else %}
+                        <a class="nav-link" href="../posts/"><b class="nav_op">Artigos Didáticos</b></a>
+                    {% endif %}
+                </li>
+
+                <li class="nav-item">
+                    {% if request.path == '/' %}
+                        <a class="nav-link" href="/equipe/"><b class="nav_op">Nossa equipe</b></a>
+                    {% elif 'somenteadvogados' in request.path %}
+                        <a class="nav-link" href="../../equipe"><b class="nav_op">Nossa equipe</b></a>
+                    {% else %}
+                        <a class="nav-link" href="../equipe"><b class="nav_op">Nossa equipe</b></a>
+                    {% endif %}
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href=""><b class="nav_op">Sobre</b></a>
+                </li>
+
+                <li class="nav-item">
+                    {% if 'login' in request.path %}
+                        <a class="nav-link" href="#"><b class="nav_op">Login</b></a>
+                    {% elif 'cadastro' in request.path %}
+                        <a class="nav-link" href="../login-admin/"><b class="nav_op">Login</b></a>
+                    {% endif %}
+                </li>
+
+                <li class="nav-item">
+                    {% if 'login' in request.path %}
+                        <a class="nav-link" href="../cadastro-admin/"><b class="nav_op">Cadastro</b></a>
+                    {% elif 'cadastro' in request.path %}
+                        <a class="nav-link" href="#"><b class="nav_op">Cadastro</b></a>
+                    {% endif %}
+                </li>
+
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}"><b class="nav_op">Sair/Deslogar</b></a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block pagecontent %}
+{% endblock %}
+
+<div id="footer_total">
+    <div class="container" id="divisao" align="center">
+        <div class="row" data-anime="left">
+            <div class="col-sm" id="footer_border">
+
+                <p class="footer_texto">&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+                    pulvinar elit interdum felis pellentesque, sed elementum libero semper. Praesent vitae nisi consequat,
+                    pretium ipsum non, egestas ante.</p>
+
+
+                <div style="padding-left: 40px">
+                    <h3 style="color: #faf2f5; text-align: left">Contatos:</h3><br>
+
+                    <p align="left" class="footer_contato"><a class="footer_a">
+                        <img class="footer_img" src="{% static './images/whatsapp.png' %}">&nbsp;Whatsapp</a></p><br/>
+                    <p align="left" class="footer_contato"><a class="footer_a">
+                        <img class="footer_img" src="{% static './images/facebook.png' %}">&nbsp;Facebook</a></p><br/>
+                    <p align="left" class="footer_contato"><a class="footer_a">
+                        <img class="footer_img" src="{% static './images/instagram.png' %}">&nbsp;Instagram</a></p><br/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm">
+            <iframe id="footer_mapa" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14687.89295392357!2d-45.5483195!3d-23.0247548!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xea822bdb90ad6038!2sGolden%20Office!5e0!3m2!1spt-BR!2sbr!4v1656707433621!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <br><span class="footer_span">GOLDEN OFFICE - Rua Artur Viêira, 318 - Jardim<br>Maria Augusta - Taubaté - SP, 12070-013</span>
+            <br><br><a class="footer_waze" href="https://ul.waze.com/ul?place=ChIJ4Vhu2g35zJQRqbawidoHs4M&ll=-23.02473310%2C-45.54837750&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location">Ir pelo Waze&nbsp;<img class="footer_wazeimg" src="{% static './images/waze.png' %}"></a>
+        </div>
+    </div><br>
+
+    <span class="footer_span" id="footer_bottom">@ 2022 ADVOCACIA .LTDA</span>
+    <br><br>
+</div>
+</body>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Advocacia: Registro Administrativo{% endblock %}
+
+{% block pagecontent %}
+    <h2 style="margin-top: 100px;">Cadastre-se</h2>
+    <!--<form method="post" action="{% url 'register' %}">-->
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                {{ field.errors }}
+                {{ field.label_tag }} <p> {{ field }} <p></p>
+            </div>
+        {% endfor %}
+        <!--
+                Sua senha não pode ser muito parecida com o resto das suas informações pessoais.
+                Sua senha precisa conter pelo menos 8 caracteres.
+                Sua senha não pode ser uma senha comumente utilizada.
+                Sua senha não pode ser inteiramente numérica.
+        -->
+        <button type="submit">Confirmar</button> <!-- onsubmit="SuccessfullyAuthenticated()" -->
+    </form>
+
+<!--        {% if password1.text == password2.text %}
+            <div class="alert alert-success">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Sucesso!</strong> Dear User,Your comment is successfully published.
+            </div>
+        {% else %}
+            <div class="alert alert-warning">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Warning!</strong> Please connect to private connection to secure your data.
+            </div>
+        {% endif %} -->
+{% endblock %} 
